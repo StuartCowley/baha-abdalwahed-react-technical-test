@@ -10,7 +10,11 @@ const getImages = (query) => {
         return axios
         .get(`https://images-api.nasa.gov/search?q=moon`)
         .then((response) => {
-            console.log(response)
+            //console.log(response.data.collection.items)
+            const imageResults = response.data.collection.items;
+            const parsedImages = imageResults.filter(result => result.data[0].media_type === "image");
+            const images = parsedImages.map(image => image.link[0].href)
+            return images;
         })
         .catch((err) => {
             console.log(err);
@@ -18,6 +22,5 @@ const getImages = (query) => {
 
     };
 };
-
 
 export default getImages;
