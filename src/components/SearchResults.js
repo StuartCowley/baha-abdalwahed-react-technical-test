@@ -4,7 +4,7 @@ import "../styles/SearchResults.css"
 
 const SearchResults = ({ results }) => {
     if (!results.length) {
-        return <p></p>
+        return <p>No Results</p>
     } else {
     return (
     <div className="search-results">

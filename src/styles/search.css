@@ -34,7 +34,7 @@
     padding-top: 50px;
   }
   
-  .submit-button {
+  .search-button {
     color: rgb(255, 255, 255);
     background-color: rgb(50, 56, 75);
     opacity: 0.9;
@@ -47,7 +47,7 @@
   }
   
   /* Animations */
-  .submit-button:hover {
+  .search-button:hover {
     color: rgb(23, 3, 41);
     background-color:rgb(204, 210, 214);
     opacity: 0.8;
