@@ -3,17 +3,17 @@ import PropTypes from "prop-types"
 import "../styles/SearchResults.css"
 
 const SearchResults = ({ results }) => {
-    if (!results.length) {
+
+if (!results.length) {
         return <p>No Results</p>
     } else {
-    return (
+        return (
     <div className="search-results">
         {results.map((image) => {
             return (
                 <img
-                className="search-results_image"
                 src={image}
-                alt="Space_image"
+                alt={`${image}`}
                 key={image}
                 />
             );
