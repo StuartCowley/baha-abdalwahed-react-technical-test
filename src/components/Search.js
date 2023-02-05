@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import "../styles/search.css"
+import PropTypes from "prop-types"
 import getImages from '../requests/getImages';
 
-const Search = () => {
+const Search = ({ setSearchResults }) => {
     const [ value, setValue ] = useState();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        getImages(value);
-    }
+        setSearchResults(await getImages(value));
+    };
+
   return (
     <>
     <form className="search-form" onSubmit={handleSubmit}>
@@ -17,7 +19,7 @@ const Search = () => {
       type="text"
       onChange={(e) => setValue(e.target.value)}
       />
-      <button className="search-btn" type="submit">
+      <button className="search-button" type="submit">
       Go!
       </button>
       </form>
@@ -25,4 +27,8 @@ const Search = () => {
   );
 };
 
-export default Search
+Search.propTypes = {
+  setSearchResults: PropTypes.func.isRequired,
+}
+
+export default Search;
